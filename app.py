@@ -52,4 +52,21 @@ cars_for_sale["fuel"].value_counts().plot(kind="bar",
 st.header('This is a header with a divider', divider='rainbow')
 st.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
+# Sample data (replace with your actual data)
+df = pd.DataFrame(data, columns=['fuel'])
+
+# Configure histogram options (optional)
+num_bins = 10  # Adjust the number of bins as needed
+hist_fig, hist_ax = plt.subplots()  # Create a figure and axis
+
+# Create the histogram
+hist_ax.hist(cars_for_sale['fuel'], bins=num_bins, edgecolor='black')
+hist_ax.set_title('Histogram of Values')
+hist_ax.set_xlabel('Value')
+hist_ax.set_ylabel('Frequency')
+
+# Display the histogram in Streamlit
+st.pyplot(hist_fig)
+
+
 plt.show()
