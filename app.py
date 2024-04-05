@@ -19,23 +19,25 @@ print(f"There are {duplicated_cars} duplicated vehicles in this DataFrame.")
 
 cars_for_sale["date_posted"] = pd.to_datetime(cars_for_sale["date_posted"])
 
+median_model_year = cars_for_sale["model_year"].median()
+
+cars_for_sale["model_year"] = cars_for_sale["model_year"].fillna(median_model_year)
+
+cars_for_sale["model_year"].isna().sum()
+
+average_model_year = cars_for_sale["cylinders"].median()
+
+cars_for_sale["cylinders"] = cars_for_sale["cylinders"].fillna(average_model_year)
+
+cars_for_sale["cylinders"].isna().sum()
+
 average_odometer = cars_for_sale.groupby("model_year")["odometer"].transform('mean')
 
 cars_for_sale["odometer"] = cars_for_sale["odometer"].fillna(average_odometer)
 
 cars_for_sale["odometer"].isna().sum()
 
-average_model_year = cars_for_sale["cylinders"].median()
-
-cars_for_sale["cylinders"] = cars_for_sale["cylinders"].fillna(median_cylinders)
-
-cars_for_sale["cylinders"].isna().sum()
-
-median_model_year = cars_for_sale["model_year"].median()
-
-cars_for_sale["model_year"] = cars_for_sale["model_year"].fillna(median_model_year)
-
-cars_for_sale["model_year"].isna().sum()
+print(cars_for_sale)
 
 agree = st.checkbox('Do You want to see this beautiful DataFrame?')
 
@@ -67,6 +69,8 @@ cars_for_sale["fuel"].value_counts().plot(kind="bar",
 
 st.header('This is a header with a divider', divider='rainbow')
 st.header('_Streamlit_ is :blue[cool] :sunglasses:')
+
+data = cars_for_sale
 
 # Sample data (replace with your actual data)
 df = pd.DataFrame(data, columns=['fuel'])
