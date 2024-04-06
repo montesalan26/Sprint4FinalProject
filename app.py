@@ -67,7 +67,7 @@ cars_for_sale["fuel"].value_counts().plot(kind="bar",
                                           ylabel="Frequency",
                                           title="Types of Fuel")
 
-st.header('This is a header with a divider', divider='rainbow')
+st.header('This is a header with a divider')
 st.header('_Streamlit_ is :blue[cool] :sunglasses:')
 
 data = cars_for_sale
