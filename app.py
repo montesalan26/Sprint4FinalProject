@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 st.header("Used Car Sale Analysis.")
 
-cars_for_sale = pd.read_csv("/vehicles_us.csv")
+cars_for_sale = pd.read_csv("vehicles_us.csv")
 print(cars_for_sale.info())
 
 cars_for_sale.head()
